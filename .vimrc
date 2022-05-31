@@ -57,6 +57,7 @@ syntax enable
 "endif
 
 nmap <leader>ne :NERDTree<cr>
+map <C-n> :NERDTreeToggle<CR>
 packloadall
 
 set nofoldenable
