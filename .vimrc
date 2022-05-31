@@ -28,17 +28,9 @@ set smarttab	" Enable smart-tabs
 
 " Required:
 " Add the dein installation directory into runtimepath
-set runtimepath+=~/.vim/dein/repos/github.com/Shougo/dein.vim " path to dein.vim
-
+set runtimepath+=/Users/jose.palala/.vim/bundles/repos/github.com/Shougo/dein.vim
 " Required:
-call dein#begin(expand('~/.vim/dein'))
-
-" Let dein manage dein
-call dein#add({path to dein.vim directory})
-if !has('nvim')
-  call dein#add('roxma/nvim-yarp')
-  call dein#add('roxma/vim-hug-neovim-rpc')
-endif
+call dein#begin('/Users/jose.palala/.vim/bundles')
 
 " Add or remove your plugins here like this:
 "call dein#add('Shougo/neosnippet.vim')
