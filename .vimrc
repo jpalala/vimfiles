@@ -3,6 +3,29 @@ if &compatible
   set nocompatible " Be iMproved
 endif
 
+let mapleader = ","
+map <leader>h :noh<CR>
+
+
+set number	" Show line numbers
+set linebreak	" Break lines at word (requires Wrap lines)
+set showbreak=+++	" Wrap-broken line prefix
+set textwidth=100	" Line wrap (number of cols)
+set showmatch	" Highlight matching brace
+set visualbell	" Use visual bell (no beeping)
+
+set hlsearch	" Highlight all search results
+set smartcase	" Enable smart-case search
+set ignorecase	" Always case-insensitive
+set incsearch	" Searches for strings incrementally
+
+set autoindent	" Auto-indent new lines
+set expandtab	" Use spaces instead of tabs
+set shiftwidth=2	" Number of auto-indent spaces
+set softtabstop=2	" Number of spaces per Tab
+set smartindent	" Enable smart-indent
+set smarttab	" Enable smart-tabs
+
 " Required:
 " Add the dein installation directory into runtimepath
 set runtimepath+=~/.vim/dein/repos/github.com/Shougo/dein.vim " path to dein.vim
