@@ -6,6 +6,8 @@ endif
 let mapleader = ","
 map <leader>h :noh<CR>
 
+let g:BASH_Ctrl_j = 'off'
+noremap <c-j> <c-d>
 
 set number	" Show line numbers
 set linebreak	" Break lines at word (requires Wrap lines)
@@ -53,5 +55,7 @@ map <C-n> :NERDTreeToggle<CR>
 packloadall
 
 set nofoldenable
+imap jj <Esc>
+
 
 set showtabline=2
