@@ -1,0 +1,32 @@
+
+func! TrimWhitespaceLine()
+    let l:save = winsaveview()
+    " Here I want to trim only for the current line
+    keeppatterns s/\s\+$//e
+    call winrestview(l:save)
+endfunc
+
+nnoremap <leader>wt :call TrimWhitespaceLine()<CR>
+command! Trim call TrimWhitespaceLine()
+
+
+"fun! TrimWhitespaceVS()
+"    let l:save = winsaveview()
+    " Here I want to trim only for the visually selected line
+"   keeppatterns s/^\s\+$//e
+
+"s/\%V\s+$//e
+"    call winrestview(l:save)
+"endfun
+
+xnoremap <leader>wv :call pr#preserve("'<,'>s/\\s\\+$//e")<CR>
+
+func! DeleteAllTrailingWS()
+  exe "normal mz"
+    %s/\s\+$//ge
+
+ exe "normal `z"
+endfunc
+
+nnoremap <leader>ws :call DeleteAllTrailingWS()<CR>
+
