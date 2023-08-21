@@ -1,0 +1,32 @@
+" # Vim Plug system
+
+call plug#begin()
+
+Plug 'StanAngeloff/php.vim'
+Plug 'Shougo/unite.vim'
+Plug 'Shougo/vimfiler.vim'
+Plug 'leafgarland/typescript-vim'
+Plug 'peitalin/vim-jsx-typescript'
+Plug 'othree/yajs.vim'
+Plug 'vim-airline/vim-airline'
+Plug 'vim-airline/vim-airline-themes'
+Plug 'mattn/emmet-vim'
+Plug 'justinmk/vim-sneak'
+Plug 'junegunn/limelight.vim'
+Plug 'junegunn/goyo.vim'
+Plug 'mhinz/vim-tree'
+Plug 'dense-analysis/ale'
+Plug 'tpope/vim-fugitive'
+Plug 'preservim/nerdtree'
+Plug 'ctrlpvim/ctrlp.vim'
+Plug 'junegunn/fzf.vim'
+Plug 'natecraddock/nvim-find'
+Plug 'editorconfig/editorconfig-vim'
+Plug 'mtth/scratch.vim'
+Plug 'mileszs/ack.vim'
+Plug 'tpenguinltg/vim-closing-brackets'
+Plug 'tpope/vim-endwise'
+Plug 'easymotion/vim-easymotion'
+Plug 'jwhitley/vim-preserve'
+
+call plug#end()

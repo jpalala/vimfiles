@@ -1,0 +1,152 @@
+let mapleader = " "
+
+set relativenumber
+set number
+set nocp
+syntax on
+
+" tabs and shit
+" Smart way to move between windows like in Spacemacs
+map <C-j> <C-W>j
+map <C-k> <C-W>k
+map <C-h> <C-W>h
+map <C-l> <C-W>l
+map <leader>wj <C-W>j
+map <leader>wk <C-W>k
+map <leader>wh <C-W>h
+map <leader>wl <C-W>l
+
+" Close the current buffer
+map <leader>bd :Bclose<cr>:tabclose<cr>
+
+" Close all the buffers
+map <leader>ba :bufdo bd<cr>
+
+" Traversing buffers
+map <leader>bn :bnext<cr>
+map <leader>bp :bprevious<cr>
+
+" Useful mappings for managing tabs
+map <leader>tn :tabnew<cr>:pwd<cr>
+map <leader>to :tabonly<cr>
+map <leader>tc :tabclose<cr>
+map <leader>tm :tabmove
+"gt can do this quite well e.g. 2gt will go to the 2nd tab
+map <leader>t<leader> :tabnext
+
+" Let '<leader>tl' toggle between this and the last accessed tab
+let g:lasttab = 1
+nmap <Leader>tl :exe "tabn ".g:lasttab<CR>
+au TabLeave * let g:lasttab = tabpagenr()
+
+
+" Opens a new tab with the current buffer's path
+" Super useful when editing files in the same directory
+map <leader>te :tabedit <c-r>=expand("%:p:h")<cr>/
+
+" Switch CWD to the directory of the open buffer
+map <leader>cd :cd %:p:h<cr>:pwd<cr>
+" CD into temp directory
+map <leader>cdt :cd ~/.vim_runtime/temp_dirs/<cr>:pwd<cr>
+
+" Specify the behavior when switching between buffers
+try
+  set switchbuf=useopen,usetab,newtab
+  set stal=2
+catch
+endtry
+
+" Return to last edit position when opening files (You want this!)
+au BufReadPost * if line("'\"") > 1 && line("'\"") <= line("$") | exe "normal! g'\"" | endif
+
+
+
+"  exit insert mode using 'jj'
+inoremap jj <ESC>
+
+" enter command mode using zz
+nnoremap zz :
+" quit w/o saving using zq
+nnoremap zq <Esc>ZQ
+
+" save and exit using zw
+nnoremap zw <Esc>ZZ
+
+" eXit command mode by Ctrl+x
+cmap <C-x> <Esc>
+
+" undo with ctrl-z in command mode
+
+set rtp+=/opt/homebrew/opt/fzf
+
+" Fix highlighting
+au BufNewFile,BufRead *.tsx,*.jsx set filetype=typescript.typescriptreact
+
+nnoremap <C-p> :Files<Cr>
+
+nnoremap <leader>a :Ack
+
+set hlsearch
+
+" autocmd BufWinEnter <buffer> match Error /\s\+$/
+" autocmd InsertEnter <buffer> match Error /\s\+\%#\@<!$/
+" autocmd InsertLeave <buffer> match Error /\s\+$/
+" autocmd BufWinLeave <buffer> call clearmatches()
+" highlight RedundantSpaces ctermbg=red guibg=orange
+" amatch RedundantSpaces /\s\+$/
+
+nnoremap <Leader>wn :match ExtraWhitespace /^\s* \s*\<Bar>\s\+$/<CR>
+nnoremap <Leader>wf :match<CR>
+
+"shows all files in the current directory
+noremap <leader>f :Files<CR>
+"shows all git files in the current directory
+noremap <leader>gf :GFiles<CR>
+"shows all files store in buffer
+noremap <leader>b :Buffers<CR>
+
+
+" enable smart-s for sneak
+let g:sneak#s_next = 1
+set tabstop=4 shiftwidth=4 expandtab
+"NERD TREE
+
+nnoremap <C-t> :NERDTreeToggle<CR>
+noremap <leader>ne :NERDTreeToggle<CR>
+nnoremap <C-f> :NERDTreeFind<CR>
+
+" Zenburn theme
+colorscheme zenburn
+
+" Limelight configuration
+" Color name (:help cterm-colors) or ANSI code
+let g:limelight_conceal_ctermfg = 'gray'
+let g:limelight_conceal_ctermfg = 240
+
+" Color name (:help gui-colors) or RGB color
+let g:limelight_conceal_guifg = 'DarkGray'
+let g:limelight_conceal_guifg = '#777777'
+
+" Default: 0.5
+let g:limelight_default_coefficient = 0.7
+
+" Number of preceding/following paragraphs to include (default: 0)
+let g:limelight_paragraph_span = 1
+
+" Vim splits
+nnoremap <C-J> <C-W><C-J>
+nnoremap <C-K> <C-W><C-K>
+nnoremap <C-L> <C-W><C-L>
+nnoremap <C-H> <C-W><C-H>
+
+set splitbelow
+set splitright
+
+" Goyo Vim Integration
+autocmd! User GoyoEnter Limelight
+autocmd! User GoyoLeave Limelight!
+
+
+highlight RedundantSpaces ctermbg=red guibg=red
+match RedundantSpaces /\s\+$/
+
